@@ -1,1 +1,12 @@
-
+version: "3.9"
+services:
+  bot:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - ./brand_core:/app/brand_core
+      - ./knowledge:/app/knowledge
+      - ./shop_data:/app/shop_data
+      - ./faiss_index:/app/faiss_index
+    restart: unless-stopped
